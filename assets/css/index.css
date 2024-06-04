@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #020228;
+    --secondary-color: #ff00e5;
+    --tertiary-color: #b535f6;
+    --btn-bg-color-gradient: linear-gradient(45deg,
+            #9b34ef 0%,
+            #490cb0 20%,
+            transparent 50%);
+    --btn-link-bg-color: #fff;
+    --btn-link-color: #000;
+    --card-bg-color: linear-gradient(0deg, transparent, #3b1e63);
+    --divider-bg-color: linear-gradient(90deg,
+            #5516ba,
+            rgba(255, 0, 229, 0.5) 80%);
+    --nav-bg-color: rgba(0, 0, 0, 0.3);
+    --text-color: #fff;
+    --link-color: #9e86ff;
+    --form-bg-color: rgba(211, 211, 211, 0.06);
+    --form-field-bg-color: rgba(0, 0, 0, 0.2);
+    --form-field-border: 1px solid rgba(255, 255, 255, 0.7);
+    --form-field-placeholder: rgba(255, 255, 255, 0.7);
+    --form-field-error: rgb(255, 76, 76);
+
+    scroll-behavior: smooth;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    background: var(--nav-bg-color);
+}
+
+.menu-logo-img {
+    width: 100%;
+}
+
+.menu-logo {
+    max-width: 160px;
+}
+
+.menu-item {
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 24px;
+    color: var(--text-color);
+}
+
+.menu-item-button {
+    padding: 8px 26px;
+    transition: background 1s, color 1s;
+}
+
+.menu-item-button:hover {
+    background-color: var(--btn-link-bg-color);
+    color: var(--btn-link-color);
+}
+
+.header {
+    margin-top: 50px;
+    padding: 100px 0 300px;
+    position: relative;
+    background: linear-gradient(-45deg, #56125b, #0f0f10, #271e6e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite alternate;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+.header-channels {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.header-channel {
+    object-fit: contain;
+}
+
+.header-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.header-title-light {
+    display: block;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+.header .text-small {
+    text-align: center;
+    max-width: 300px;
+}
+
+.header-button {
+    animation: wiggle 2.2s linear infinite;
+}
+
+.header::after {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    bottom: 0;
+    background: linear-gradient(0deg, var(--primary-color), transparent);
+    content: "";
+}
+
+.divider {
+    width: 70%;
+    height: 5px;
+    max-width: 700px;
+    background: var(--divider-bg-color);
+}
+
+.offer {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.offer-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
+}
+
+.offer-price-small {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.subscription {
+    background: url(../images/background-movies-series.png) no-repeat;
+    position: relative;
+    background-size: cover;
+}
+
+.subscription-plans {
+    display: flex;
+    justify-content: space-around;
+    gap: 80px;
+    margin: 40px 0;
+    perspective: 2000px;
+    perspective-origin: top;
+}
+
+.subscription-card {
+    background: var(--card-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 60px;
+    border-radius: 8px;
+    min-height: 600px;
+    transition: transform 1s ease-in-out;
+}
+
+.subscription-description {
+    margin-bottom: 14px;
+    padding-left: 14px;
+    text-align: left;
+    font-size: 1.25rem;
+    list-style: none;
+}
+
+.subscription-plan {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+.subscription-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: "Raleway", sans-serif;
+}
+
+.subscription-price .text-small {
+    color: var(--text-color);
+}
+
+.subscription-description::marker {
+    font-size: 2rem;
+    margin: 0 8px 0 0;
+    content: "+";
+}
+
+.subscription-plans:has(.subscription-card:nth-child(1):hover) .subscription-card:nth-child(2) {
+    transform: rotateY(-45deg);
+}
+
+.subscription-plans:has(.subscription-card:nth-child(2):hover) .subscription-card:nth-child(1) {
+    transform: rotateY(45deg);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+p {
+    font-family: "Quicksand", sans-serif;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+.text-small {
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.button {
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 4px;
+    padding: 16px 40px;
+    border-radius: 500px;
+    font-weight: 700;
+    border: none;
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    cursor: pointer;
+
+}
+
+.button.button-gradient {
+    background-size: 250%;
+    background: var(--btn-bg-color-gradient);
+    transition: background 1s, outline 1s, transform 1s;
+
+}
+
+.button.button-gradient:hover {
+    background-color: transparent;
+    background-position: 100%;
+    outline: 2px solid var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 1200px;
+    padding: 24px;
+    text-align: center;
+    margin: auto;
+}
+
+.contents {
+    margin: 100px auto;
+}
+
+.contents-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contents-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: 0.8s, border 1s;
+    transition: transform 0.8s;
+}
+
+.contents-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 2s;
+}
+
+.contents-card:hover {
+    transform: scale(1.05);
+    border: 2px solid var(--tertiary-color);
+}
+
+.contents-card:hover .contents-img {
+    opacity: 0;
+}
+
+.contents-card:nth-child(1):hover {
+    background-image: url(../images/hbo-hover_0.webp);
+}
+
+.contents-card:nth-child(2):hover {
+    background-image: url(../images/MAX-Hover.webp);
+}
+
+.contents-card:nth-child(3):hover {
+    background-image: url(../images/DC-Hover.webp);
+}
+
+.contents-card:nth-child(4):hover {
+    background-image: url(../images/WB-Hover.webp);
+}
+
+.contents-card:nth-child(5):hover {
+    background-image: url(../images/CN-Hover.png);
+}
+
+.contents-card:nth-child(6):hover {
+    background-image: url(../images/UCL-Hover.webp);
+}
+
+.footer-link {
+    margin: 0 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--link-color);
+    transition: color 0.5s;
+}
+
+.footer-legal {
+    margin: 16px 0;
+    font-size: 0.75rem;
+    color: var(--link-color);
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.footer-link:hover {
+    color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--tertiary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    10% {
+        transform: rotate(0);
+    }
+
+    15% {
+        transform: rotate(-15deg);
+    }
+
+    20% {
+        transform: rotate(10deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    30% {
+        transform: rotate(10deg);
+    }
+
+    35% {
+        transform: rotate(-10deg);
+    }
+
+    40%,
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .subscription-plans {
+        gap: 40px;
+    }
+
+    .contents-container {
+        gap: 32px;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    .subscription-plans {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subscription-card {
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .contents-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .subscription-price {
+        font-size: 1.5rem;
+    }
+
+    .subscription-description {
+        font-size: 1rem;
+    }
+
+    .subscription-plan {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .subscription-card {
+        padding: 40px;
+    }
+
+    .contents-container {
+        grid-template-columns: repeat(6, 100%);
+        grid-auto-flow: column;
+        overflow: auto hidden;
+    }
+
+    section {
+        scroll-margin-top: 120px;
+    }
+
+    .menu {
+        flex-direction: column;
+        padding: 12px;
+        gap: 16px;
+    }
+
+    .menu-logo {
+        max-width: 100px;
+    }
+
+    .menu-item-button {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .header {
+        margin-top: 128px !important;
+    }
+
+    .footer-link {
+        display: block;
+        margin-bottom: 16px;
+    }
+}
+
+
+@media (pointer: coarse) {
+    .contents-card:hover {
+        transform: none;
+    }
+
+    .subscription-plans:has(.subscription-card:nth-child(1):hover) .subscription-card:nth-child(2),
+    .subscription-plans:has(.subscription-card:nth-child(2):hover) .subscription-card:nth-child(1) {
+        transform: none;
+    }
+}
